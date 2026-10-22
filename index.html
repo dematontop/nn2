@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Start Earning</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+
+<!-- ===== META PIXEL ===== -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1793522705315662');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1793522705315662&ev=PageView&noscript=1"/></noscript>
+<!-- ===== END META PIXEL ===== -->
+
+<style>
+  :root {
+    --bg: #14140f;
+    --gold: #c79b45;
+    --cream: #f6ecd6;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; }
+  body {
+    background: var(--bg);
+    color: var(--cream);
+    font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: max(16px, env(safe-area-inset-top)) 16px max(16px, env(safe-area-inset-bottom));
+  }
+  .card {
+    width: 100%;
+    max-width: 460px;
+    border: 1px solid var(--gold);
+    border-radius: 28px;
+    padding: 40px 22px 36px;
+    text-align: center;
+  }
+  .logo {
+    width: 140px;
+    height: 140px;
+    margin: 0 auto 30px;
+    border-radius: 50%;
+    border: 4px solid var(--gold);
+    background: var(--cream);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .logo img { width: 100%; height: 100%; object-fit: contain; display: block; }
+  h1 {
+    font-weight: 800;
+    font-size: clamp(26px, 7.6vw, 36px);
+    line-height: 1.22;
+    letter-spacing: -.01em;
+    text-transform: uppercase;
+    text-wrap: balance;
+    overflow-wrap: break-word;
+  }
+  .btn {
+    margin-top: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    padding: 20px 16px;
+    background: var(--gold);
+    color: #14140f;
+    border-radius: 14px;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 20px;
+    text-transform: uppercase;
+  }
+  .btn svg { width: 24px; height: 24px; flex: none; }
+  .btn:active { transform: scale(.98); }
+  .btn:focus-visible { outline: 3px solid var(--cream); outline-offset: 3px; }
+</style>
+</head>
+<body>
+  <main class="card">
+    <!-- LOGO: apna logo "logo.png" naam se isi folder mein upload karo -->
+    <div class="logo"><img src="logo.png" alt="" onerror="this.style.display='none'"></div>
+
+    <h1>Start earning without any investment</h1>
+
+    <a class="btn" id="join" href="https://telegram.me/Smartwork123452?text=Yes%20I%20am%20interested%20%E2%9C%85" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.9 3.6 2.7 11c-1.3.5-1.3 1.3-.2 1.6l4.9 1.5 1.9 5.8c.2.6.1.8.7.8.5 0 .7-.2 1-.5l2.4-2.3 4.9 3.6c.9.5 1.5.2 1.8-.8L23.4 5c.3-1.3-.5-1.9-1.5-1.4zM8.6 13.6l9.5-6c.4-.3.9-.1.5.2l-7.9 7.1-.3 3.3-1.8-4.6z"/></svg>
+      Join Now
+    </a>
+  </main>
+
+  <script>
+    // Lead event sirf 1 baar fire hoga (same visitor ke repeat click par dobara nahi)
+    (function () {
+      var btn = document.getElementById('join');
+      var KEY = 'lead_fired';
+      var fired = false;
+      try { fired = localStorage.getItem(KEY) === '1'; } catch (err) {}
+
+      btn.addEventListener('click', function (e) {
+        var url = this.href;
+        e.preventDefault();
+        if (!fired) {
+          fired = true;
+          try { localStorage.setItem(KEY, '1'); } catch (err) {}
+          try { if (window.fbq) fbq('track', 'Lead'); } catch (err) {}
+          setTimeout(function () { window.location.href = url; }, 250);
+        } else {
+          window.location.href = url;
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
